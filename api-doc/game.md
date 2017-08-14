@@ -87,126 +87,49 @@ Node->Unity
 
 ## ゲームプレイ
 
-### 残り時間
+### 水をかける動作をする
 #### 通信方向
-Node->Unity
+Unity->Node->Unity
 
 #### Request
 ```js
 {
-  "type":"game_time",
-  "time_second":54
-}
-```
-
-### スコア
-#### 通信方向
-Node->Unity
-
-#### Request
-```js
-{
-  "type":"game_score",
-  "scores":[
-    {
-      "device_id":"",
-      "score":78
-    },
-    {
-      "device_id":"",
-      "score":22
-    }
-  ]
-}
-```
-
-### ボール射出
-#### 通信方向
-Node->Unity
-
-#### Request
-```js
-{
-  "type":"shoot_ball",
+  "type":"splash_water",
   "device_id":"",
   "room_id":"",
-  "ball_type":"",
-  "ball_id":"",
-  "position":{
-    "x":121,
-    "y":33
+}
+```
+
+### 水を相手に当てた
+#### 通信方向
+Unity->Node->Unity
+
+#### Request
+```js
+{
+  "type":"hit_water",
+  "device_id":"",
+  "room_id":"",
+  "score": ""
+}
+```
+
+### 自機移動
+Unity->Node->Unity
+
+#### Request
+```js
+{
+  "type":"move",
+  "device_id":"",
+  "room_id":"",
+  "position": {
+    "x": "",
+    "y": ""
   },
-  "vector":{
-    "x":323,
-    "y":323
+  "angle": {
+    "r": ""
   }
-}
-```
-
-### バー移動
-#### 通信方向
-Unity->Node->Unity
-
-#### Request
-```js
-{
-  "type":"move_bar",
-  "device_id":"",
-  "room_id":"",
-  "bar_type":"{left,right}"
-}
-```
-
-### スペシャル発動
-#### 通信方向
-Unity->Node->Unity
-
-#### Request
-```js
-{
-  "type":"launch_special",
-  "device_id":"",
-  "room_id":"",
-  "ball_type":""
-}
-```
-
-### ボール反射
-#### 通信方向
-Unity->Node->Unity
-
-#### Request
-```js
-{
-  "type":"reflect_ball",
-  "device_id":"",
-  "room_id":"",
-  "ball_id":"",
-  "ball_type":"",
-  "reflect_type":"{wall,bar}",
-  "position":{
-    "x":121,
-    "y":33
-  },
-  "vector":{
-    "x":323,
-    "y":323
-  }
-}
-```
-
-### ゴール
-#### 通信方向
-Unity->Node->Unity
-
-#### Request
-```js
-{
-  "type":"goal",
-  "device_id":"",
-  "room_id":"",
-  "ball_id":"",
-  "ball_type":""
 }
 ```
 
